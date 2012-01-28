@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="dac163c5-b132-4aeb-a52e-314687e89c9d" name="Mark@APPRENTICE 2012-01-21 11:52:20" runUser="Apprentice\Mark" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="d7d5cde9-cf26-41cd-86b0-b8e7dced1cce">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Mark_APPRENTICE 2012-01-21 11_52_20">
+      <DeploymentItem filename="c:\source\ZorkLike\ZorkLike\packages\RhinoMocks.3.6\lib\Rhino.Mocks.dll" />
+      <DeploymentItem filename="c:\source\ZorkLike\ZorkLike\bin\Debug\ZorkLike.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-01-21T11:52:20.4135125-06:00" queuing="2012-01-21T11:52:20.5585158-06:00" start="2012-01-21T11:52:20.5815163-06:00" finish="2012-01-21T11:52:21.5555380-06:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="7" executed="7" passed="6" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="Run_Should_Write_A_Prompt_And_Read_Input" storage="c:\source\zorklike\zorklike.test\bin\debug\zorklike.test.dll" id="7dbdb468-44b1-3d5d-db59-65692f120c91">
+      <Execution id="5f2ec31b-7d11-4ced-bd1f-e46cb6fb8f5d" />
+      <TestMethod codeBase="c:/source/ZorkLike/ZorkLike.Test/bin/Debug/ZorkLike.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ZorkLike.Test.GameEngineTest, ZorkLike.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Run_Should_Write_A_Prompt_And_Read_Input" />
+    </UnitTest>
+    <UnitTest name="Run_Should_Stop_Looping_Regardless_Of_Case" storage="c:\source\zorklike\zorklike.test\bin\debug\zorklike.test.dll" id="54a5c638-f848-85bf-70b2-e46d737217c8">
+      <Execution id="fe8753ba-d93a-43e1-9764-678ae9990d13" />
+      <TestMethod codeBase="c:/source/ZorkLike/ZorkLike.Test/bin/Debug/ZorkLike.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ZorkLike.Test.GameEngineTest, ZorkLike.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Run_Should_Stop_Looping_Regardless_Of_Case" />
+    </UnitTest>
+    <UnitTest name="Look_Should_Create_A_Player_If_One_Does_Not_Exist" storage="c:\source\zorklike\zorklike.test\bin\debug\zorklike.test.dll" id="65f4c980-a1fd-131b-4fda-c78df6f59e02">
+      <Execution id="b9dc0adb-8ba2-4cba-82d2-311c00849a4e" />
+      <TestMethod codeBase="c:/source/ZorkLike/ZorkLike.Test/bin/Debug/ZorkLike.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ZorkLike.Test.Look_Command_Test, ZorkLike.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Look_Should_Create_A_Player_If_One_Does_Not_Exist" />
+    </UnitTest>
+    <UnitTest name="Look_Should_Return_Nothing_Message_Without_Description" storage="c:\source\zorklike\zorklike.test\bin\debug\zorklike.test.dll" id="4e10408e-c72d-5cbb-ec0a-da1576f249bb">
+      <Execution id="3e7ce9be-f3aa-4a58-a824-e8be395faac3" />
+      <TestMethod codeBase="c:/source/ZorkLike/ZorkLike.Test/bin/Debug/ZorkLike.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ZorkLike.Test.Look_Command_Test, ZorkLike.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Look_Should_Return_Nothing_Message_Without_Description" />
+    </UnitTest>
+    <UnitTest name="Run_Should_Stop_Looping_When_Exit_Is_Read" storage="c:\source\zorklike\zorklike.test\bin\debug\zorklike.test.dll" id="1e685686-5aa7-d583-6979-83765b9a305c">
+      <Execution id="8451c1e6-0086-4897-add7-515003b1b856" />
+      <TestMethod codeBase="c:/source/ZorkLike/ZorkLike.Test/bin/Debug/ZorkLike.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ZorkLike.Test.GameEngineTest, ZorkLike.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Run_Should_Stop_Looping_When_Exit_Is_Read" />
+    </UnitTest>
+    <UnitTest name="Run_Should_Stop_Looping_Regardless_Of_Spaces" storage="c:\source\zorklike\zorklike.test\bin\debug\zorklike.test.dll" id="af14c640-b6e2-f91b-cc79-895c991ad6c0">
+      <Execution id="1abf6b16-f382-4f38-ad9f-e4a5189cf0d8" />
+      <TestMethod codeBase="c:/source/ZorkLike/ZorkLike.Test/bin/Debug/ZorkLike.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ZorkLike.Test.GameEngineTest, ZorkLike.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Run_Should_Stop_Looping_Regardless_Of_Spaces" />
+    </UnitTest>
+    <UnitTest name="Create_Command_Should_Create_And_Save_A_New_GameObject" storage="c:\source\zorklike\zorklike.test\bin\debug\zorklike.test.dll" id="47f2b2f7-0db2-ee88-f544-975f49f8bf9b">
+      <Execution id="5d4e02e4-b351-4ec5-ab56-1ac613569bbf" />
+      <TestMethod codeBase="c:/source/ZorkLike/ZorkLike.Test/bin/Debug/ZorkLike.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ZorkLike.Test.Create_Command_Test, ZorkLike.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Create_Command_Should_Create_And_Save_A_New_GameObject" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="1e685686-5aa7-d583-6979-83765b9a305c" executionId="8451c1e6-0086-4897-add7-515003b1b856" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="47f2b2f7-0db2-ee88-f544-975f49f8bf9b" executionId="5d4e02e4-b351-4ec5-ab56-1ac613569bbf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4e10408e-c72d-5cbb-ec0a-da1576f249bb" executionId="3e7ce9be-f3aa-4a58-a824-e8be395faac3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="54a5c638-f848-85bf-70b2-e46d737217c8" executionId="fe8753ba-d93a-43e1-9764-678ae9990d13" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="65f4c980-a1fd-131b-4fda-c78df6f59e02" executionId="b9dc0adb-8ba2-4cba-82d2-311c00849a4e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7dbdb468-44b1-3d5d-db59-65692f120c91" executionId="5f2ec31b-7d11-4ced-bd1f-e46cb6fb8f5d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="af14c640-b6e2-f91b-cc79-895c991ad6c0" executionId="1abf6b16-f382-4f38-ad9f-e4a5189cf0d8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="8451c1e6-0086-4897-add7-515003b1b856" testId="1e685686-5aa7-d583-6979-83765b9a305c" testName="Run_Should_Stop_Looping_When_Exit_Is_Read" computerName="APPRENTICE" duration="00:00:00.2274759" startTime="2012-01-21T11:52:20.5845164-06:00" endTime="2012-01-21T11:52:21.0975278-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8451c1e6-0086-4897-add7-515003b1b856">
+    </UnitTestResult>
+    <UnitTestResult executionId="5d4e02e4-b351-4ec5-ab56-1ac613569bbf" testId="47f2b2f7-0db2-ee88-f544-975f49f8bf9b" testName="Create_Command_Should_Create_And_Save_A_New_GameObject" computerName="APPRENTICE" duration="00:00:00.2713948" startTime="2012-01-21T11:52:21.1045280-06:00" endTime="2012-01-21T11:52:21.3865342-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5d4e02e4-b351-4ec5-ab56-1ac613569bbf">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method ZorkLike.Test.Create_Command_Test.Create_Command_Should_Create_And_Save_A_New_GameObject threw exception: 
+Rhino.Mocks.Exceptions.ExpectationViolationException: IRepository.Add&lt;ZorkLike.Data.GameObject&gt;(anything); Expected #1, Actual #0.</Message>
+          <StackTrace>    at Rhino.Mocks.RhinoMocksExtensions.AssertWasCalled[T](T mock, Action`1 action, Action`1 setupConstraints)
+   at Rhino.Mocks.RhinoMocksExtensions.AssertWasCalled[T](T mock, Func`2 action)
+   at ZorkLike.Test.Create_Command_Test.Create_Command_Should_Create_And_Save_A_New_GameObject() in c:\source\ZorkLike\ZorkLike.Test\Look_Command_Test.cs:line 49
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="3e7ce9be-f3aa-4a58-a824-e8be395faac3" testId="4e10408e-c72d-5cbb-ec0a-da1576f249bb" testName="Look_Should_Return_Nothing_Message_Without_Description" computerName="APPRENTICE" duration="00:00:00.0151309" startTime="2012-01-21T11:52:21.3955344-06:00" endTime="2012-01-21T11:52:21.4285352-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3e7ce9be-f3aa-4a58-a824-e8be395faac3">
+    </UnitTestResult>
+    <UnitTestResult executionId="fe8753ba-d93a-43e1-9764-678ae9990d13" testId="54a5c638-f848-85bf-70b2-e46d737217c8" testName="Run_Should_Stop_Looping_Regardless_Of_Case" computerName="APPRENTICE" duration="00:00:00.0020281" startTime="2012-01-21T11:52:21.4315352-06:00" endTime="2012-01-21T11:52:21.4415355-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fe8753ba-d93a-43e1-9764-678ae9990d13">
+    </UnitTestResult>
+    <UnitTestResult executionId="b9dc0adb-8ba2-4cba-82d2-311c00849a4e" testId="65f4c980-a1fd-131b-4fda-c78df6f59e02" testName="Look_Should_Create_A_Player_If_One_Does_Not_Exist" computerName="APPRENTICE" duration="00:00:00.0342414" startTime="2012-01-21T11:52:21.4475356-06:00" endTime="2012-01-21T11:52:21.4935366-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b9dc0adb-8ba2-4cba-82d2-311c00849a4e">
+    </UnitTestResult>
+    <UnitTestResult executionId="5f2ec31b-7d11-4ced-bd1f-e46cb6fb8f5d" testId="7dbdb468-44b1-3d5d-db59-65692f120c91" testName="Run_Should_Write_A_Prompt_And_Read_Input" computerName="APPRENTICE" duration="00:00:00.0027738" startTime="2012-01-21T11:52:21.5005368-06:00" endTime="2012-01-21T11:52:21.5085370-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5f2ec31b-7d11-4ced-bd1f-e46cb6fb8f5d">
+    </UnitTestResult>
+    <UnitTestResult executionId="1abf6b16-f382-4f38-ad9f-e4a5189cf0d8" testId="af14c640-b6e2-f91b-cc79-895c991ad6c0" testName="Run_Should_Stop_Looping_Regardless_Of_Spaces" computerName="APPRENTICE" duration="00:00:00.0018400" startTime="2012-01-21T11:52:21.5135371-06:00" endTime="2012-01-21T11:52:21.5225373-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1abf6b16-f382-4f38-ad9f-e4a5189cf0d8">
+    </UnitTestResult>
+  </Results>
+</TestRun>
