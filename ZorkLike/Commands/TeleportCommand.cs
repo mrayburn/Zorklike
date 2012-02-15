@@ -5,38 +5,28 @@ using ZorkLike.Data;
 
 namespace ZorkLike.Commands
 {
-    public class TeleportCommand : ICommand
+    public class TeleportCommand : BaseDataCommand
     {
-        private readonly IRepositoryFactoryFactory factory;
-        private readonly IConsoleFacade console;
-        private readonly IGameObjectQueries goQueries;
-        public TeleportCommand(IConsoleFacade console, IRepositoryFactoryFactory factory, IGameObjectQueries goQueries)
+        public TeleportCommand(IConsoleFacade console, IRepositoryFactoryFactory factory, IGameObjectQueries goQueries, IFormatter[] formatters)
+            : base(console, factory, goQueries, formatters)
         {
-            this.console = console;
-            this.factory = factory;
-            this.goQueries = goQueries;
+            AddCommandName("@teleport");
         }
-        public bool IsValid(string cmd)
+        protected override bool ExecuteWithData(string cmd, IRepository repo, Player player)
         {
-            return cmd.Split(' ')[0].ToLower() == "@teleport";
-        }
-
-        public void Execute(string cmd)
+            var locationName = cmd.Split(' ')[1];
+            var location = repo.AsQueryable<GameObject>()
+                .OfType<Room>().FirstOrDefault(m => m.Name == locationName);
+            if (player.Location == location)
             {
-                using (var fac = factory.Create())
-                {
-                    var repo = fac.Create();
-                    var locationName = cmd.Split(' ')[1];
-                    var location = repo.AsQueryable<GameObject>()
-                        .OfType<Room>().FirstOrDefault(m => m.Name == locationName);
-                    var player = goQueries.GetPlayer(repo);
-                    if (player.Location == location)
-                    {
-                        console.WriteLine("Really!? You are already there!");
-                    }
-                    else player.Location = location;
-                    repo.UnitOfWork.SaveChanges();
-                }
+                console.WriteLine("Really!? You are already there!");
+                return false;
             }
+            else
+            {
+                player.Location = location;
+                return true;
+            }
+        }
     }
 }

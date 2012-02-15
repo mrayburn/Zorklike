@@ -5,36 +5,41 @@ using ZorkLike.Data;
 
 namespace ZorkLike.Commands
 {
-    public class LookCommand : ICommand
+    public class LookCommand : BaseDataCommand
     {
-        private readonly IRepositoryFactoryFactory factory;
-        private readonly IConsoleFacade console;
-        private readonly IGameObjectQueries goQueries;
-        public LookCommand(IConsoleFacade console, IRepositoryFactoryFactory factory, IGameObjectQueries goQueries)
+        public LookCommand(IConsoleFacade console, IRepositoryFactoryFactory factory, IGameObjectQueries goQueries, IFormatter[] formatters)
+            : base (console, factory, goQueries, formatters)
         {
-            this.console = console;
-            this.factory = factory;
-            this.goQueries = goQueries;
+            AddCommandName("look");
+            AddCommandName("l");
         }
-        public bool IsValid(string cmd)
+        
+        protected override bool ExecuteWithData(string cmd, IRepository repo, Player player)
         {
-            return cmd.Split(' ')[0].ToLower() == "look";
-        }
-        public void Execute(string cmd)
-        {
-            using (var fac = factory.Create())
+            string[] cmdArray = cmd.Split(new [] { ' ' }, 2);
+            string name = "";
+            if (cmdArray.GetUpperBound(0) >= 1)
+                name = cmdArray[1].Trim();
+            if (name == "here" || name == "")
             {
-                var goName = cmd.Split(' ')[1];
-                var repo = fac.Create();
-                var player = goQueries.GetPlayer(repo);
-                var go = goQueries.GetGameObjectByNameAndLocation(repo, goName, player.Location);
+                formatters.OfType<LookFormatter>().First().Format(player.Location);
+                formatters.OfType<InventoryFormatter>().First().Format(player.Location);
+            }
+            else
+            {
+                var go = goQueries.GetGameObjectByNameAndPlayerLocation(repo, name, player);
                 if (go == null)
                 {
-                    console.WriteLine("You can't find anything like that around.");
+                    formatters.OfType<NullFormatter>().First().Format(go);
+                    //console.WriteLine("You can't find anything like that around.");
                 }
-                else console.WriteLine(go.Description ?? "You see nothing special.");
+                else
+                {
+                    formatters.OfType<LookFormatter>().First().Format(go);
+                    formatters.OfType<InventoryFormatter>().First().Format(go);
+                }
             }
+            return false;
         }
-
     }
 }

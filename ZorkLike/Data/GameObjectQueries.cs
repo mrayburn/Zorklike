@@ -26,7 +26,7 @@ namespace ZorkLike.Data
                 player = new Player();
                 player.Location = GetMapRoom(repo);
                 player.Aliases.Add(new Tag { Value = "Me" });
-                player.Aliases.Add(new Tag { Value = "Myself" });
+                player.Aliases.Add(new Tag { Value = "Player" });
                 repo.Add(player);
                 repo.UnitOfWork.SaveChanges();
             }
@@ -40,6 +40,11 @@ namespace ZorkLike.Data
         public GameObject GetGameObjectByNameAndLocation(IRepository repo, string name, GameObject location)
         {
             var go = repo.AsQueryable<GameObject>().FirstOrDefault(m => (m.Name == name || m.Aliases.Any(n => n.Value == name)) && m.Location.Id == location.Id);
+            return go;
+        }
+        public GameObject GetGameObjectByNameAndPlayerLocation(IRepository repo, string name, Player player)
+        {
+            var go = repo.AsQueryable<GameObject>().FirstOrDefault(m => (m.Name == name || m.Aliases.Any(x => x.Value == name)) && (m.Location.Id == player.Id || m.Location.Id == player.Location.Id));
             return go;
         }
     }

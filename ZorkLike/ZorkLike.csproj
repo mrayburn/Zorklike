@@ -58,10 +58,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ColorConsole.cs" />
+    <Compile Include="Commands\AliasCommand.cs" />
+    <Compile Include="Commands\BaseCommand.cs" />
+    <Compile Include="Commands\BaseDataCommand.cs" />
     <Compile Include="Commands\CreateCommand.cs" />
     <Compile Include="Commands\CreateRoomCommand.cs" />
+    <Compile Include="Commands\PickUpCommand.cs" />
+    <Compile Include="Commands\PutDownCommand.cs" />
+    <Compile Include="Commands\SetCommand.cs" />
     <Compile Include="Commands\TeleportCommand.cs" />
     <Compile Include="ConsoleFacade.cs" />
+    <Compile Include="Data\Exit.cs" />
     <Compile Include="Data\GameDbContext.cs" />
     <Compile Include="Data\GameObject.cs" />
     <Compile Include="Data\GameObjectQueries.cs" />
@@ -75,10 +82,12 @@
     <Compile Include="Data\Room.cs" />
     <Compile Include="Data\Tag.cs" />
     <Compile Include="Data\UnitOfWork.cs" />
+    <Compile Include="Formatters.cs" />
     <Compile Include="GameEngine.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="IConsoleFacade.cs" />
     <Compile Include="Commands\LookCommand.cs" />
+    <Compile Include="IFormatters.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

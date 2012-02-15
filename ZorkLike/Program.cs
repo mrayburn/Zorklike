@@ -20,11 +20,11 @@ namespace ZorkLike
             container.Kernel.AddFacility<TypedFactoryFacility>();
             container.Kernel.Resolver.AddSubResolver(new ArrayResolver(container.Kernel, true));
             container.Register(
+                AllTypes.FromThisAssembly().BasedOn<ICommand>().WithServiceAllInterfaces(),
                 Component.For<IConsoleFacade>().ImplementedBy<ColorConsole>(),
-                Component.For<ICommand>().ImplementedBy<LookCommand>(),
-                Component.For<ICommand>().ImplementedBy<CreateCommand>(),
-                Component.For<ICommand>().ImplementedBy<CreateRoomCommand>(),
-                Component.For<ICommand>().ImplementedBy<TeleportCommand>(),
+                Component.For<IFormatter>().ImplementedBy<NullFormatter>(),
+                Component.For<IFormatter>().ImplementedBy<InventoryFormatter>(),
+                Component.For<IFormatter>().ImplementedBy<LookFormatter>(),
                 Component.For<IGameObjectQueries>().ImplementedBy<GameObjectQueries>(),
                 Component.For<GameEngine>(),
                 Component.For<IUnitOfWork>().ImplementedBy<UnitOfWork>().LifeStyle.Transient,

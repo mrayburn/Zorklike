@@ -5,30 +5,38 @@ using ZorkLike.Data;
 
 namespace ZorkLike.Commands
 {
-    public class CreateRoomCommand : ICommand
+    public class CreateExitCommand : BaseDataCommand
     {
-        private readonly IRepositoryFactoryFactory factory;
-        private readonly IConsoleFacade console;
-        public CreateRoomCommand(IConsoleFacade console, IRepositoryFactoryFactory factory)
+        public CreateExitCommand(IConsoleFacade console, IRepositoryFactoryFactory factory, IGameObjectQueries goQueries, IFormatter[] formatters)
+            : base(console, factory, goQueries, formatters)
         {
-            this.console = console;
-            this.factory = factory;
+            AddCommandName("@createexit");
         }
-        public bool IsValid(string cmd)
+
+        protected override bool ExecuteWithData(string cmd, IRepository repo, Player player)
         {
-            return cmd.Split(' ')[0].ToLower() == "@createroom";
+            var name = cmd.Split(' ')[1];
+            var destinationName = cmd.Split(' ')[2];
+            var destination = repo.AsQueryable<GameObject>()
+                .OfType<Room>().FirstOrDefault(m => m.Name == destinationName);
+            var exit = new Exit() { Name = name, Destination = destination, Location = player.Location };
+            repo.Add(exit);
+            return true;
         }
-        public void Execute(string cmd)
+    }
+    public class CreateRoomCommand : BaseDataCommand
+    {
+        public CreateRoomCommand(IConsoleFacade console, IRepositoryFactoryFactory factory, IGameObjectQueries goQueries, IFormatter[] formatters)
+            : base(console, factory, goQueries, formatters)
         {
-            using (var fac = factory.Create())
-            {
-                var repo = fac.Create();
-                var name = cmd.Split(' ')[1];
-                var room = new Room();
-                room.Name = name;
-                repo.Add(room);
-                repo.UnitOfWork.SaveChanges();
-            }
+            AddCommandName("@createroom");
+        }
+        protected override bool ExecuteWithData(string cmd, IRepository repo, Player player)
+        {
+            var name = cmd.Split(' ')[1];
+            var room = new Room() { Name = name };
+            repo.Add(room);
+            return true;
         }
     }
 }

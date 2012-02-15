@@ -18,6 +18,7 @@ namespace ZorkLike.Test
         private IRepository repo;
         private IUnitOfWork uow;
         private IGameObjectQueries goQueries;
+        private IFormatter[] formatters;
 
         [TestInitialize]
         public void GlobalArrange()
@@ -28,12 +29,13 @@ namespace ZorkLike.Test
             repo = MockRepository.GenerateMock<IRepository>();
             uow = MockRepository.GenerateMock<IUnitOfWork>();
             goQueries = MockRepository.GenerateMock<IGameObjectQueries>();
+            //formatters = MockRepository.GenerateMock<IFormatter[]>();
 
             factory.Stub(m => m.Create()).Return(repoFactory);
             repoFactory.Stub(m => m.Create()).Return(repo);
             repo.Stub(m => m.UnitOfWork).Return(uow);
 
-            target = new LookCommand(console, factory, goQueries);
+            //target = new LookCommand(console, factory, goQueries, formatters);
 
         }
         [TestMethod]
