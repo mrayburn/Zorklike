@@ -9,7 +9,6 @@ namespace ZorkLike.Commands
     {
         protected readonly IRepositoryFactoryFactory factory;
         protected readonly IGameObjectQueries goQueries;
-
         public BaseDataCommand(IConsoleFacade console, IRepositoryFactoryFactory factory, IGameObjectQueries goQueries, IFormatter[] formatters)
             : base(console, formatters)
         {
@@ -24,11 +23,21 @@ namespace ZorkLike.Commands
                 var player = goQueries.GetPlayer(repo);
 
                 // do something 
-                bool saveChanges = ExecuteWithData(cmd, repo, player);
-                if (saveChanges)
-                    repo.UnitOfWork.SaveChanges();
+
+                try
+                {
+                    bool saveChanges = ExecuteWithData(cmd, repo, player);
+                    if (saveChanges)
+                        repo.UnitOfWork.SaveChanges();
+                }
+                catch(Exception ex)
+                {
+                    //console.WriteLine(ex.Message);
+                    console.WriteLine(ex.ToString());
+                }
             }
         }
+
         protected abstract bool ExecuteWithData(string cmd, IRepository repo, Player player);
     }
 }

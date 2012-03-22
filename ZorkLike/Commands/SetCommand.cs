@@ -18,7 +18,7 @@ namespace ZorkLike.Commands
             var name = preName.Split('.')[0];
             var field = preName.Split('.')[1];
             var fieldInput = cmd.Split('=')[1];
-            var go = goQueries.GetGameObjectByName(repo, name);
+            var go = goQueries.GetGameObjectByNameAndPlayerLocation(repo, name, player);
 
             if (field == "description")
             {

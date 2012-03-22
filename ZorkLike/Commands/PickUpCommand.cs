@@ -16,7 +16,7 @@ namespace ZorkLike.Commands
         }
         protected override bool ExecuteWithData(string cmd, IRepository repo, Player player)
         {
-            var goName = cmd.Split(' ')[1];
+            var goName = cmd.Split(new[] { ' ' }, 2)[1];
             var go = goQueries.GetGameObjectByNameAndLocation(repo, goName, player.Location);
             if (go == null)
             {

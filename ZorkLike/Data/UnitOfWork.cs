@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 
 namespace ZorkLike.Data
 {
@@ -19,7 +20,24 @@ namespace ZorkLike.Data
         }
         public void SaveChanges()
         {
-            dbContext.SaveChanges();
+            try
+            {
+                dbContext.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                foreach (var item in ex.EntityValidationErrors)
+                {
+                    foreach (var error in item.ValidationErrors)
+                    {
+                        Console.WriteLine(error.ErrorMessage);
+                    }
+                }
+            }
+            finally
+            {
+                
+            }
         }
 
         public void Dispose()

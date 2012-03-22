@@ -5,13 +5,13 @@ using ZorkLike.Data;
 
 namespace ZorkLike.Commands
 {
-    public class AliasCommand : BaseDataCommand
+    public class StatusCommand : BaseDataCommand
     {
-        public AliasCommand(IConsoleFacade console, IRepositoryFactoryFactory factory, IGameObjectQueries goQueries, IFormatter[] formatters)
+        public StatusCommand(IConsoleFacade console, IRepositoryFactoryFactory factory, IGameObjectQueries goQueries, IFormatter[] formatters)
             : base(console, factory, goQueries, formatters)
         {
-            // New format for this command: @alias GameObject.opType(+=, -=) fieldInput
-            AddCommandName("@alias");
+            // New format for this command: @status GameObject.opType(+=, -=) fieldInput
+            AddCommandName("@status");
         }
         protected override bool ExecuteWithData(string cmd, IRepository repo, Player player)
         {
@@ -29,8 +29,8 @@ namespace ZorkLike.Commands
                     fieldTag = new Tag();
                     fieldTag.Value = fieldInput;
                 }
-                go.Aliases.Add(fieldTag);
-                console.WriteLine("Alias set!");
+                go.Statuses.Add(fieldTag);
+                console.WriteLine("Status set!");
                 return true;
             }
             else
@@ -45,9 +45,9 @@ namespace ZorkLike.Commands
                 {
                     if (opType == "-")
                     {
-                        var fieldTag = go.Aliases.FirstOrDefault(m => m.Value == fieldInput);
-                        go.Aliases.Remove(fieldTag);
-                        console.WriteLine("Alias removed!");
+                        var fieldTag = go.Statuses.FirstOrDefault(m => m.Value == fieldInput);
+                        go.Statuses.Remove(fieldTag);
+                        console.WriteLine("Status removed!");
                         return true;
                     }
                     else

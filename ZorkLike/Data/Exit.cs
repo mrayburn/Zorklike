@@ -7,7 +7,6 @@ namespace ZorkLike.Data
 {
     public class Exit : GameObject
     {
-        [Required]
         public virtual Room Destination { get; set; }
     }
 }

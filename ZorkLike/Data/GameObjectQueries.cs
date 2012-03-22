@@ -12,7 +12,7 @@ namespace ZorkLike.Data
             if (mapRoom == null)
             {
                 mapRoom = new Room();
-                mapRoom.Name = "MapRoom";
+                mapRoom.Name = "The Map Room";
                 repo.Add(mapRoom);
                 repo.UnitOfWork.SaveChanges();
             }
@@ -46,6 +46,11 @@ namespace ZorkLike.Data
         {
             var go = repo.AsQueryable<GameObject>().FirstOrDefault(m => (m.Name == name || m.Aliases.Any(x => x.Value == name)) && (m.Location.Id == player.Id || m.Location.Id == player.Location.Id));
             return go;
+        }
+        public Exit GetExitByNameAndPlayerLocation(IRepository repo, string name, Player player)
+        {
+            var exit = repo.AsQueryable<Exit>().FirstOrDefault(m => (m.Name == name || m.Aliases.Any(x => x.Value == name)) && (m.Location.Id == player.Id || m.Location.Id == player.Location.Id));
+            return exit;
         }
     }
 }

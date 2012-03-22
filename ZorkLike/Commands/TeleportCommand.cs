@@ -14,7 +14,7 @@ namespace ZorkLike.Commands
         }
         protected override bool ExecuteWithData(string cmd, IRepository repo, Player player)
         {
-            var locationName = cmd.Split(' ')[1];
+            var locationName = cmd.Split(new[] { ' ' }, 2)[1];
             var location = repo.AsQueryable<GameObject>()
                 .OfType<Room>().FirstOrDefault(m => m.Name == locationName);
             if (player.Location == location)
@@ -25,6 +25,8 @@ namespace ZorkLike.Commands
             else
             {
                 player.Location = location;
+                console.Write("You have teleported to: ");
+                console.WriteLine(player.Location.Name);
                 return true;
             }
         }

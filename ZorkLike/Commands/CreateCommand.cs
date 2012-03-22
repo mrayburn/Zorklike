@@ -14,8 +14,10 @@ namespace ZorkLike.Commands
         }
         protected override bool ExecuteWithData(string cmd, IRepository repo, Player player)
         {
-            var name = cmd.Split(' ')[1];
+            var name = cmd.Split(new[] {' '}, 2)[1];
             repo.Add(new GameObject() { Name = name, Location = player.Location });
+            console.Write("You created: ");
+            console.WriteLine(name);
             return true;
         }
     }

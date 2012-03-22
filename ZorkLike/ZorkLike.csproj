@@ -62,10 +62,14 @@
     <Compile Include="Commands\BaseCommand.cs" />
     <Compile Include="Commands\BaseDataCommand.cs" />
     <Compile Include="Commands\CreateCommand.cs" />
+    <Compile Include="Commands\CreateExitCommand.cs" />
     <Compile Include="Commands\CreateRoomCommand.cs" />
+    <Compile Include="Commands\KillCommand.cs" />
+    <Compile Include="Commands\MoveCommand.cs" />
     <Compile Include="Commands\PickUpCommand.cs" />
     <Compile Include="Commands\PutDownCommand.cs" />
     <Compile Include="Commands\SetCommand.cs" />
+    <Compile Include="Commands\StatusCommand.cs" />
     <Compile Include="Commands\TeleportCommand.cs" />
     <Compile Include="ConsoleFacade.cs" />
     <Compile Include="Data\Exit.cs" />

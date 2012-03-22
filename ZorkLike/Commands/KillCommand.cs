@@ -5,18 +5,21 @@ using ZorkLike.Data;
 
 namespace ZorkLike.Commands
 {
-    public class PutDownCommand : BaseDataCommand
+    public class KillCommand : BaseDataCommand
     {
-        public PutDownCommand(IConsoleFacade console, IRepositoryFactoryFactory factory, IGameObjectQueries goQueries, IFormatter[] formatters)
+
+        public KillCommand(IConsoleFacade console, IRepositoryFactoryFactory factory, IGameObjectQueries goQueries, IFormatter[] formatters)
             : base(console, factory, goQueries, formatters)
         {
-            AddCommandName("putdown");
-            AddCommandName("drop");
+            AddCommandName("@kill");
+            AddCommandName("@delete");
         }
+
+
         protected override bool ExecuteWithData(string cmd, IRepository repo, Player player)
         {
-            var goName = cmd.Split(new[] { ' ' }, 2)[1];
-            var go = goQueries.GetGameObjectByNameAndLocation(repo, goName, player);
+            var name = cmd.Split(new[] {' '}, 2)[1];
+            var go = goQueries.GetGameObjectByNameAndPlayerLocation(repo, name, player);
             if (go == null)
             {
                 console.WriteLine("You don't see anything like that around");
@@ -24,12 +27,11 @@ namespace ZorkLike.Commands
             }
             else
             {
-                go.Location = player.Location;
-                console.Write("You are no longer carrying: ");
-                console.WriteLine(goName);
+                console.Write("You just deleted: ");
+                console.WriteLine(go.Name);
+                repo.Delete(go);
                 return true;
             }
-
         }
     }
 }
